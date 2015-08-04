@@ -1,3 +1,6 @@
+// Whole-script strict mode syntax
+'use strict';
+
 // Enemy class
 var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
@@ -27,12 +30,12 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 700) {
         this.x = enemyXrandom();
         this.speed = enemyRandomSpeed();
-    };
+    }
 
     // More enemies (between 3 and 6)
     if (this.x > 300 && allEnemies.length > 2 && allEnemies.length < 6) {
-        createEnemy()
-    };
+        createEnemy();
+    }
 
     // Collision detection - player vs enemies
     if ((this.y > player.y - 20 && this.y < player.y + 20) && (this.x > player.x - 70 && this.x < player.x + 70)) {
@@ -52,10 +55,10 @@ var Player = function(x, y) {
     this.y = y;
 };
 
-// Player position update
+// Player position update for future implementation
 Player.prototype.update = function() {
-    this.x = this.x;
-    this.y = this.y;
+    //    this.x = this.x;
+    //    this.y = this.y;
 };
 
 // Player image render
@@ -87,8 +90,16 @@ Player.prototype.handleInput = function(key) {
         this.x = 400;
     } else if (this.y > 401) {
         this.y = 400;
-    } else if (this.y <= -20) {
-        player.reset();
+        // If player crosses top bound - win and reset game with new character
+    } else if (this.y <= 0) {
+        this.reset();
+        if (this.sprite == 'images/char-cat-girl.png') {
+            this.sprite = 'images/char-boy.png';
+        } else {
+            this.sprite = 'images/char-cat-girl.png';
+        }
+        allEnemies = [];
+        createEnemy();
     }
 };
 
