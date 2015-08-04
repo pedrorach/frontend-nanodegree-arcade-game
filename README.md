@@ -1,6 +1,14 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
+General description
+-------------------
 
-for self-checking their submission.
+Very simple implementation to meet specifications of the Frogger game for Udacity Front End Dev Nanodegree.
+
+How to play
+-----------
+
+To reach the objective of reaching the water, use the 'arrow keys' to move the character across the street filled with three rows of moving bugs.
+Once the water is reached, the character changes from boy to girl so to confirm street was crossed.
+If there is collision with a bug, player is reset to starting position.
