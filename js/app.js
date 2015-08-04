@@ -8,8 +8,7 @@ var Enemy = function(x,y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Math.floor(Math.random() * 3);
-
+    this.speed = 50 * (Math.floor(Math.random() * 2)+1);
 }
 
 // Update the enemy's position, required method for game
@@ -18,7 +17,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed + 100 * dt;
+    this.x += this.speed * dt;
     //this.y *= dt;
 }
 
@@ -62,6 +61,16 @@ Player.prototype.handleInput = function(key) {
             this.y += 81;
             break;
     }
+    if (this.x < 0) {
+        this.x = 0;
+    } else if (this.x > 401) {
+        this.x = 400;
+    } else if (this.y > 401) {
+        this.y = 400;
+    } else if (this.y < -6) {
+        this.x = 200;
+        this.y = 400;
+    }
 }
 
 // Now instantiate your objects.
@@ -70,7 +79,7 @@ Player.prototype.handleInput = function(key) {
 
 // Random X starting position for enemy
 var xRandom = function() {
-    return Math.random()*200-100
+    return Math.random(0.8, 1)*100-400
 }
 
 // Enemy starting grid position
@@ -78,11 +87,18 @@ var enemyRows = [[xRandom(), 60],[xRandom(), 145],[xRandom(), 230]];
 
 var allEnemies = [];
 
-// Enemy creation at starting random position
-for(var i = 0; i < 3; i++) {
-    var enemy = new Enemy(enemyRows[i][0], enemyRows[i][1]);
-    allEnemies.push(enemy);
-}
+// Enemy creation per row at starting random position
+
+setInterval(function() {
+    for(var i = 0; i < 3; i++) {
+        var enemy = new Enemy(enemyRows[i][0], enemyRows[i][1]);
+        allEnemies.push(enemy);
+        if (allEnemies.length > 25) {
+        allEnemies.shift();
+        }
+    }
+}, 5000);
+
 
 // Player creation at starting position
 var player = new Player(200,400);
