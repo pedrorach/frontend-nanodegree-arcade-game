@@ -6,6 +6,11 @@ General description
 
 Very simple implementation to meet specifications of the Frogger game for Udacity FrontEnd Nanodegree.
 
+How to run the game
+-------------------
+
+To run the game, download all files and directories from this repository and open 'index.html' on your favorite browser.
+
 How to play
 -----------
 
