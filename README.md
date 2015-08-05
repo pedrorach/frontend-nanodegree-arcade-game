@@ -18,9 +18,9 @@ How to play
 
 To attain the objective of reaching the water, use the 'arrow keys' to move the character across the street filled with three rows of moving bugs.
 
-Once the water is reached, the character changes from boy to girl so to confirm street was crossed.
+Once the water is reached, the player character is reset to initial position and switches from boy to girl and vice-versa as a confirmation that the street was crossed.
 
-If there is collision with a bug, player is reset to starting position.
+If there is collision with a bug, the player character is reset to starting position.
 
 Planned future implementations
 ------------------------------
