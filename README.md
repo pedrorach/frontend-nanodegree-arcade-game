@@ -9,7 +9,9 @@ Very simple implementation to meet specifications of the Frogger game for Udacit
 How to run the game
 -------------------
 
-To run the game, download all files and directories from this repository and open 'index.html' on your favorite browser.
+To run the game, download all files and directories from this repository. 
+
+Open 'index.html' on your favorite browser.
 
 How to play
 -----------
