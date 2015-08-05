@@ -38,7 +38,8 @@ Enemy.prototype.update = function(dt) {
     }
 
     // Collision detection - player vs enemies
-    if ((this.y > player.y - 20 && this.y < player.y + 20) && (this.x > player.x - 70 && this.x < player.x + 70)) {
+    if ((this.y > player.y - 20 && this.y < player.y + 20) &&
+        (this.x > player.x - 70 && this.x < player.x + 70)) {
         player.reset();
     }
 };
@@ -70,16 +71,16 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(key) {
     switch (key) {
         case 'left':
-            this.x -= 100;
+            this.x -= 101;
             break;
         case 'up':
-            this.y -= 81;
+            this.y -= 83;
             break;
         case 'right':
-            this.x += 100;
+            this.x += 101;
             break;
         case 'down':
-            this.y += 81;
+            this.y += 83;
             break;
     }
 
@@ -89,7 +90,7 @@ Player.prototype.handleInput = function(key) {
     } else if (this.x > 401) {
         this.x = 400;
     } else if (this.y > 401) {
-        this.y = 400;
+        this.y = 390;
         // If player crosses top bound - win and reset game with new character
     } else if (this.y <= 0) {
         this.reset();
